@@ -17906,7 +17906,7 @@ window.setTimeout(() => {
     installComponent.usecustom = false;
     const p = document.createElement('p');
     p.appendChild(installComponent);
-    p.innerText = ' this Application for offline use';
+    p.innerHTML += ' this Application for offline use';
     document.getElementById('introCard').appendChild(p);
     const isInstalled = installComponent.getInstalledStatus();
     if (!isInstalled) {
