@@ -17911,8 +17911,8 @@ window.setTimeout(() => {
     const installComponent = document.createElement('pwa-install');
     installComponent.usecustom = false;
     const p = document.createElement('p');
-    p.innerText = 'Install this Application for offline use';
     p.appendChild(installComponent);
+    p.innerText = ' this Application for offline use';
     document.getElementById('introCard').appendChild(p);
     const isInstalled = installComponent.getInstalledStatus();
     if (!isInstalled) {
