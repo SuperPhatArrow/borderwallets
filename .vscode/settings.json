@@ -6,5 +6,8 @@
     "eegrid",
     "uheprng",
     "zxcvbn"
+  ],
+  "cSpell.ignoreWords": [
+    "usecustom"
   ]
 }

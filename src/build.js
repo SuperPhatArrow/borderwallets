@@ -45,8 +45,27 @@ console.log('Building HTML file...');
 
     const output = path.join(__dirname, '../dist/borderwallets.html');
     const pwaOutput = path.join(__dirname, '../dist/index.html');
+    const offlineOutput = path.join(
+      __dirname,
+      '../dist/borderwallets_offline.html'
+    );
+    const pwaHtml = result.replace(
+      '<title>Bitcoin Border Wallets</title>',
+      `<title>Bitcoin Border Wallets</title>
+  <script src="/script.js" defer></script>
+  <link rel="manifest" href="/manifest.json">
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"
+  ></script>`
+    );
+    const offlineHtml = result.replace(
+      '<title>Bitcoin Border Wallets</title>',
+      `<title>OFFLINE EGG</title>`
+    );
     await writeFile(output, result, 'utf8');
-    await writeFile(pwaOutput, result, 'utf8');
+    await writeFile(pwaOutput, pwaHtml, 'utf8');
+    await writeFile(offlineOutput, offlineHtml, 'utf8');
     console.log(`Task completed! Built file is available at ${output}`);
   } catch (error) {
     console.log('Build failed', error);

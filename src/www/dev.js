@@ -1106,10 +1106,23 @@ window.addEventListener('DOMContentLoaded', () => {
   type(words);
 });
 
-if (location.host === 'borderwallets.vercel.app') {
-  alert(
-    `Thanks for using the online demonstration version of the Border Wallets Entropy Grid Generator.
+window.setTimeout(() => {
+  //
+  if (location.host === 'borderwallets.vercel.app') {
+    const installComponent = document.createElement('pwa-install');
+    installComponent.usecustom = true;
 
-As per our best practice guidance, do not use this for real money, but instead download a version of this tool to use on an offline, air-gapped machine.    `
-  );
-}
+    document.body.appendChild(installComponent);
+    const isInstalled = installComponent.getInstalledStatus();
+    if (!isInstalled) {
+      alert(
+        `Thanks for using the online demonstration version of the Border Wallets Entropy Grid Generator.
+
+As per our best practice guidance, do not use this for real money, but instead download a version of this tool to use on an offline, air-gapped machine.
+
+Alternatively, you can install this as an App on your device which will allow it to function offline!`
+      );
+      installComponent.openModal();
+    }
+  }
+}, 1000);
