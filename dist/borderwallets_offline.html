@@ -13326,7 +13326,7 @@ a.has-text-danger-dark:focus {
       <div class="box">
         <article class="message is-dark">
           <div class="message-body">
-            <div class="content">
+            <div class="content" id="introCard">
               <p>If you have not familiarised yourself with what Border Wallets are, how they are created using the
                 Entropy Grid Generator, and how to use and handle them, please visit <a
                   href="https://www.borderwallets.com">our website</a> before starting.
@@ -17904,8 +17904,10 @@ window.setTimeout(() => {
   if (location.host === 'borderwallets.vercel.app') {
     const installComponent = document.createElement('pwa-install');
     installComponent.usecustom = false;
-
-    document.body.appendChild(installComponent);
+    const p = document.createElement('p');
+    p.innerText = 'Install this Application for offline use';
+    p.appendChild(installComponent);
+    document.getElementById('introCard').appendChild(p);
     const isInstalled = installComponent.getInstalledStatus();
     if (!isInstalled) {
       openModal(document.getElementById('installConfirmation'));

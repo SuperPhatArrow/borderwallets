@@ -1116,8 +1116,10 @@ window.setTimeout(() => {
   if (location.host === 'borderwallets.vercel.app') {
     const installComponent = document.createElement('pwa-install');
     installComponent.usecustom = false;
-
-    document.body.appendChild(installComponent);
+    const p = document.createElement('p');
+    p.innerText = 'Install this Application for offline use';
+    p.appendChild(installComponent);
+    document.getElementById('introCard').appendChild(p);
     const isInstalled = installComponent.getInstalledStatus();
     if (!isInstalled) {
       openModal(document.getElementById('installConfirmation'));
