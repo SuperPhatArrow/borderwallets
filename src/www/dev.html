@@ -969,6 +969,35 @@
       </footer>
     </div>
   </div>
+  <div class="modal" id="installConfirmation">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head is-danger">
+        <p class="modal-card-title">WELCOME</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="content">
+          <p>
+            Thanks for using the <strong>online demonstration</strong> version of the Border Wallets Entropy Grid
+            Generator.
+          </p>
+          <p>
+            As per our best practice guidance, do not use this for real money, but instead download a version of this
+            tool to use on
+            an offline, air-gapped machine.
+          </p>
+          <p>
+            Alternatively, you can install this as an App on your device which will allow it to function offline!
+          </p>
+        </div>
+      </section>
+      <footer class="modal-card-foot" id="installFooter">
+        <button class="button is-success" onclick="showInstallationModal()">Install</button>
+        <button class="button is-danger">Cancel</button>
+      </footer>
+    </div>
+  </div>
   <div class="modal" id="processingModal">
     <div class="modal-background"></div>
     <div class="modal-card">

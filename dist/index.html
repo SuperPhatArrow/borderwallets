@@ -14126,6 +14126,35 @@ a.has-text-danger-dark:focus {
       </footer>
     </div>
   </div>
+  <div class="modal" id="installConfirmation">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head is-danger">
+        <p class="modal-card-title">WELCOME</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="content">
+          <p>
+            Thanks for using the <strong>online demonstration</strong> version of the Border Wallets Entropy Grid
+            Generator.
+          </p>
+          <p>
+            As per our best practice guidance, do not use this for real money, but instead download a version of this
+            tool to use on
+            an offline, air-gapped machine.
+          </p>
+          <p>
+            Alternatively, you can install this as an App on your device which will allow it to function offline!
+          </p>
+        </div>
+      </section>
+      <footer class="modal-card-foot" id="installFooter">
+        <button class="button is-success" onclick="showInstallationModal()">Install</button>
+        <button class="button is-danger">Cancel</button>
+      </footer>
+    </div>
+  </div>
   <div class="modal" id="processingModal">
     <div class="modal-background"></div>
     <div class="modal-card">
@@ -17871,25 +17900,21 @@ window.addEventListener('DOMContentLoaded', () => {
   type(words);
 });
 
+const showInstallationModal = () => {
+  const installComponent = document.querySelector('pwa-install');
+  installComponent.openPrompt();
+};
+
 window.setTimeout(() => {
   //
   if (location.host === 'borderwallets.vercel.app') {
     const installComponent = document.createElement('pwa-install');
-    installComponent.usecustom = true;
+    //installComponent.usecustom = true;
 
-    document.body.appendChild(installComponent);
+    document.getElementById('installFooter').appendChild(installComponent);
     const isInstalled = installComponent.getInstalledStatus();
     if (!isInstalled) {
-      alert(
-        `Thanks for using the online demonstration version of the Border Wallets Entropy Grid Generator.
-
-As per our best practice guidance, do not use this for real money, but instead download a version of this tool to use on an offline, air-gapped machine.
-
-Alternatively, you can install this as an App on your device which will allow it to function offline!`
-      );
-      window.setTimeout(() => {
-        installComponent.openPrompt();
-      }, 3000);
+      openModal(document.getElementById('installConfirmation'));
     }
   }
 }, 1000);
