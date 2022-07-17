@@ -14144,7 +14144,7 @@ a.has-text-danger-dark:focus {
         </div>
       </section>
       <footer class="modal-card-foot" id="installFooter">
-        <button class="button is-success" onclick="showInstallationModal()">Install</button>
+        <button class="button is-success" onclick="document.querySelector('pwa-install').openPrompt();">Install</button>
         <button class="button is-danger">Cancel</button>
       </footer>
     </div>
@@ -17903,9 +17903,9 @@ window.setTimeout(() => {
   //
   if (location.host === 'borderwallets.vercel.app') {
     const installComponent = document.createElement('pwa-install');
-    //installComponent.usecustom = true;
+    installComponent.usecustom = false;
 
-    document.getElementById('installFooter').appendChild(installComponent);
+    document.body.appendChild(installComponent);
     const isInstalled = installComponent.getInstalledStatus();
     if (!isInstalled) {
       openModal(document.getElementById('installConfirmation'));

@@ -1115,9 +1115,9 @@ window.setTimeout(() => {
   //
   if (location.host === 'borderwallets.vercel.app') {
     const installComponent = document.createElement('pwa-install');
-    //installComponent.usecustom = true;
+    installComponent.usecustom = false;
 
-    document.getElementById('installFooter').appendChild(installComponent);
+    document.body.appendChild(installComponent);
     const isInstalled = installComponent.getInstalledStatus();
     if (!isInstalled) {
       openModal(document.getElementById('installConfirmation'));
