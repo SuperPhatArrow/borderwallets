@@ -1122,7 +1122,7 @@ As per our best practice guidance, do not use this for real money, but instead d
 
 Alternatively, you can install this as an App on your device which will allow it to function offline!`
       );
-      installComponent.openModal();
+      installComponent.openPrompt();
     }
   }
 }, 1000);
