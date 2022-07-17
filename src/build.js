@@ -44,7 +44,9 @@ console.log('Building HTML file...');
     }
 
     const output = path.join(__dirname, '../dist/borderwallets.html');
+    const pwaOutput = path.join(__dirname, '../dist/index.html');
     await writeFile(output, result, 'utf8');
+    await writeFile(pwaOutput, result, 'utf8');
     console.log(`Task completed! Built file is available at ${output}`);
   } catch (error) {
     console.log('Build failed', error);
