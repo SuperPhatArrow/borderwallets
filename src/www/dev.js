@@ -1106,7 +1106,7 @@ window.addEventListener('DOMContentLoaded', () => {
   type(words);
 });
 
-if (location.host === 'www.borderwallets.com') {
+if (location.host === 'borderwallets.vercel.app') {
   alert(
     `Thanks for using the online demonstration version of the Border Wallets Entropy Grid Generator.
 
